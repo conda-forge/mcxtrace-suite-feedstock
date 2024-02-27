@@ -15,24 +15,34 @@ build:
 outputs:
 
   - name: mcxtrace-core
-    script: install-files-core.sh
+    script: install-files-core.sh  # [unix]
+    script: install-files-core.bat  # [win]
     build:
       skip: true  # [win]
     requirements:
       build:
         - cmake
-        - make
+        - make  # [unix]
         - {{ compiler('c') }}
-        - flex
-        - bison
+        - flex  # [unix]
+        - bison  # [unix]
+        - winflexbison  # [win]
+        - mslex  # [win]
+        - msmpi  # [win]
+        - openmpi  # [not win]
+      host:
+        - dirent  # [win]
       run:
         - python
         - {{ compiler('c') }}
-        - bash
+        - bash  # [unix]
         # for mxrun
         - pyaml
         # for traces from mxrun
         - ply
+        - mslex  # [win]
+        - msmpi  # [win]
+        - openmpi  # [not win]
     test:
       files:
         - test_pkg.py
