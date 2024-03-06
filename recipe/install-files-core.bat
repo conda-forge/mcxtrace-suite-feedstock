@@ -38,7 +38,10 @@ cmake ^
     -DENSURE_NCRYSTAL=OFF ^
     -DENABLE_CIF2HKL=OFF ^
     -DENABLE_NEUTRONICS=OFF ^
-    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_SHARED_LIBS=ON ^
+    -DMPILIB=msmpi.lib ^
+    -DMPILIBDIR=${CONDA_PREFIX}\\Library\\lib ^
+    -DMPIINCLUDEDIR=${CONDA_PREFIX}\\Library\\include
 
 @REM ^	DCMAKE_C_COMPILER=gcc.exe
 
@@ -55,14 +58,6 @@ cmake --build . --target install --config Release
 
 @REM Data files will be provided in mcxtrace-data package instead:
 rd /s /q %PREFIX%\share\mcxtrace\resources\data
-
-@REM #Temporary workarounds:
-@REM if [ -f "${PREFIX}/bin/postinst" ]; then
-@REM     rm -f "${PREFIX}/bin/postinst"
-@REM fi
-@REM if [ -f "${PREFIX}/bin/acc_gpu_bind" ]; then
-@REM     mv "${PREFIX}/bin/acc_gpu_bind" "${PREFIX}/bin/mcxtrace-acc_gpu_bind"
-@REM fi
 
 @REM  Activation script (simply to get $MCXTRACE convenience env var to work in the
 @REM  same way as when McXtrace is installed in other manners.
