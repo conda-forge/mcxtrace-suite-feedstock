@@ -1,12 +1,14 @@
-{% set version = "3.4.24" %}
+{% set version = "3.4.25" %}
 
 package:
   name: mcxtrace-suite
   version: {{ version }}
 
+# sha256 value manually found by
+# curl -sL url | openssl sha256
 source:
   url: https://github.com/McStasMcXtrace/McCode/archive/mcxtrace-{{ version }}.tar.gz
-  sha256: 9b655d21b77f5fcdbf3ef321aaa045ce071fb938f8237e5b6924e35b0a57ddad
+  sha256: ca0a500faf4fc52f3164c287c1d8ae1eff2bc6d052e9193cfb83443385da366a
   folder: src
 
 build:
