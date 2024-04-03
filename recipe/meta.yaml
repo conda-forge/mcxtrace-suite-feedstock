@@ -1,4 +1,4 @@
-{% set version = "3.4.28" %}
+{% set version = "3.4.29" %}
 
 package:
   name: mcxtrace-suite
@@ -8,7 +8,7 @@ package:
 # curl -sL url | openssl sha256
 source:
   url: https://github.com/McStasMcXtrace/McCode/archive/mcxtrace-{{ version }}.tar.gz
-  sha256: 5a3b863d94139761453839d380f62137431e8890c650fe4cab590524156f1ed2
+  sha256: afd47d4029a578e8db63b04f9dc5686fa083d4b1760ccab0d19256451bba950b
   folder: src
 
 build:
@@ -43,6 +43,7 @@ outputs:
         - mslex  # [win]
         - msmpi  # [win]
         - openmpi  # [not win]
+        - nexus
     test:
       files:
         - test_pkg.py
