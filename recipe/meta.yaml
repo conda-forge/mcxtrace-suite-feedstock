@@ -1,4 +1,4 @@
-{% set version = "3.4.39" %}
+{% set version = "3.4.40" %}
 
 package:
   name: mcxtrace-suite
@@ -8,7 +8,7 @@ package:
 # curl -sL url | openssl sha256
 source:
   url: https://github.com/McStasMcXtrace/McCode/archive/mcxtrace-{{ version }}.tar.gz
-  sha256: e8c1c610d389769b1578c5adce3fe5d077d939d975700101f943eee05f2ddba9
+  sha256: e5b836a3e3665b23096c7c46302bf5fd4f3ab01c114880b64c666d0da65434ee
   folder: src
 
 build:
@@ -36,6 +36,8 @@ outputs:
         - python
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - gsl
+        - xraylib
         - bash  # [unix]
         # for mxrun
         - pyaml
@@ -45,6 +47,7 @@ outputs:
         - msmpi  # [win]
         - openmpi  # [not win]
         - nexus  # [not (aarch64 or ppc64le)]
+        - nexpy  # [not (aarch64 or ppc64le)]
     test:
       files:
         - test_pkg.py
