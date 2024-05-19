@@ -1,4 +1,4 @@
-{% set version = "3.4.40" %}
+{% set version = "3.4.41" %}
 
 package:
   name: mcxtrace-suite
@@ -8,7 +8,7 @@ package:
 # curl -sL url | openssl sha256
 source:
   url: https://github.com/McStasMcXtrace/McCode/archive/mcxtrace-{{ version }}.tar.gz
-  sha256: e5b836a3e3665b23096c7c46302bf5fd4f3ab01c114880b64c666d0da65434ee
+  sha256: 9a6abda8880b540414a2796f9d559111a973d002d3d99de05f9b4a480d82ba79
   folder: src
 
 build:
