@@ -12,7 +12,7 @@ source:
   folder: src
 
 build:
-  number: 0
+  number: 1
 
 outputs:
 
@@ -39,20 +39,12 @@ outputs:
         - python
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - gsl
-        - xraylib
         - bash  # [unix]
         # for mxrun
         - pyaml
         # for traces from mxrun
         - ply
         - mslex  # [win]
-        - msmpi  # [win]
-        - nodejs
-        - openmpi=4  # [osx]
-        - openmpi  # [not (win or osx)]
-        - nexus  # [not (aarch64 or ppc64le)]
-        - nexpy  # [not (aarch64 or ppc64le)]
     test:
       files:
         - test_pkg.py
@@ -101,6 +93,7 @@ outputs:
         - pillow
         - pyqtgraph
         - pyqt >=5.10
+        - nodejs
     test:
       files:
         - test_pkg.py
@@ -120,6 +113,14 @@ outputs:
         - {{ pin_subpackage('mcxtrace-data', max_pin="x.x.x") }}
         - {{ pin_subpackage('mcxtrace-mxgui', max_pin="x.x.x") }}
         - {{ pin_subpackage('mcxtrace-vis', max_pin="x.x.x") }}
+        - msmpi  # [win]
+        - openmpi=4  # [osx]
+        - openmpi  # [not (win or osx)]
+        - gsl
+        - xraylib
+        - nexus  # [not (aarch64 or ppc64le)]
+        - nexpy  # [not (aarch64 or ppc64le)]
+        - ncrystal  # [unix and not (aarch64 or ppc64le)]
         - mcpl  # [unix and not (aarch64 or ppc64le)]
 
 about:
