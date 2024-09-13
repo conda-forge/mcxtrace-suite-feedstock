@@ -12,7 +12,7 @@ source:
   folder: src
 
 build:
-  number: 1
+  number: 2
 
 outputs:
 
@@ -116,10 +116,9 @@ outputs:
         - openmpi=4  # [unix]
         - gsl
         - xraylib
-        - nexus  # [not (aarch64 or ppc64le)]
-        - nexpy  # [not (aarch64 or ppc64le)]
-        - ncrystal  # [unix and not (aarch64 or ppc64le)]
-        - mcpl  # [unix and not (aarch64 or ppc64le)]
+        - nexus
+        - nexpy
+        - mcpl  # [unix]
 
 about:
   home: https://mcxtrace.org/
