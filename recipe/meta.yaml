@@ -119,7 +119,7 @@ outputs:
         - openmpi=4  # [unix]
         - gsl
         - xraylib
-        - nexus
+        - libnexus
         - nexpy
         - mcpl  # [unix]
 
