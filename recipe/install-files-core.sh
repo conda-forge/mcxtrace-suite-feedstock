@@ -15,7 +15,7 @@ test -n "${PKG_VERSION}"
 
 for i in $(seq 1 100000); do
     #Find a unique build dir:
-    BLDDIR="$PWD/build_mcstas_core_${i}"
+    BLDDIR="$PWD/build_mcxtrace_core_${i}"
     if [ ! -d "${BLDDIR}" ]; then
         break
     fi
