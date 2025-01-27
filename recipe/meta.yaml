@@ -37,6 +37,7 @@ outputs:
         - bash  # [unix]
         # for mxrun
         - pyaml
+        - numpy
         - mslex  # [win]
     test:
       files:
