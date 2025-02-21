@@ -9,7 +9,7 @@ Package license: GPL-3.0-only
 
 Summary: McXtrace is a general tool for simulating x-ray scattering instruments and experiments.
 
-Development: https://github.com/McStasMcXtrace/McCode
+Development: https://github.com/mccode-dev/McCode
 
 Documentation: https://mcxtrace.org/
 
