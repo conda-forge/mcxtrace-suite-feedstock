@@ -123,7 +123,7 @@ outputs:
         - {{ pin_subpackage('mcxtrace-mxgui', max_pin="x.x.x") }}
         - {{ pin_subpackage('mcxtrace-vis', max_pin="x.x.x") }}
         - msmpi  # [win]
-        - openmpi=4  # [unix]
+        - openmpi =4  # [unix]
         - ucx  # [linux]
         - gsl
         - libnexus
