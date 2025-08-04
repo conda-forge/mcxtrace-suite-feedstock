@@ -189,8 +189,8 @@ def tests_for_pkg_mcxtrace():
     if not f_Si_laz.exists():
         raise SystemExit('Did not find Si.laz in expected location')
 
-    if platform.system().lower()=='windows':
-        print('Windows detected - skipping NCrystal/MCPL/mpi tests')
+    if 'ppc' in platform.processor().lower():
+        print('ppc processor detected - skipping MCPL/mpi tests')
         return
 
     #MPI test (disabled for now):
