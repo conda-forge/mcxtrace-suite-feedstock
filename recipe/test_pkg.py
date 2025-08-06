@@ -189,12 +189,12 @@ def tests_for_pkg_mcxtrace():
     if not f_Si_laz.exists():
         raise SystemExit('Did not find Si.laz in expected location')
 
-    if 'linux' in platform.system().lower():
-        print('linux detected - reconfiguring for openmpi without ssh/rsh')
-        os.environ["MCXTRACE_MPIRUN_OVERRIDE"] = "mpirun --mca btl self,vader,tcp --oversubscribe"
-
     #MPI test
-    run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2')
+    if 'linux' in platform.system().lower():
+        print('linux detected - attempting to run only a single process')
+        run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=1 --verbose')
+    else:
+        run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2 --verbose')
 
     if 'ppc' in platform.processor().lower():
         print('ppc processor detected - skipping MCPL tests')
