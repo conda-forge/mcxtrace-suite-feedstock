@@ -44,8 +44,6 @@ outputs:
         - test_pkg.py
       commands:
         - python test_pkg.py core
-      requires:
-        - openssh  # [linux]
       source_files:
         - src/mcxtrace-comps/examples/ESRF/ESRF_BM29/ESRF_BM29.instr
         - src/mcxtrace-comps/examples/AstroX_ESA/NuSTAR_1shell_con/NuSTAR_1shell_con.instr
