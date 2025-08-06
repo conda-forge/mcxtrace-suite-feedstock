@@ -201,8 +201,8 @@ def tests_for_pkg_mcxtrace():
         return
 
     #MCPL test:
-    #run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_input/Test_MCPL_input.instr', '-s1000 repeat=1')
-    #run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_output/Test_MCPL_output.instr', '-s1000 Ncount=1e3')
+    run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_input/Test_MCPL_input.instr', '-s1000 repeat=1')
+    run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_output/Test_MCPL_output.instr', '-s1000 Ncount=1e3')
 
 if __name__=='__main__':
     import sys
