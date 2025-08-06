@@ -189,16 +189,20 @@ def tests_for_pkg_mcxtrace():
     if not f_Si_laz.exists():
         raise SystemExit('Did not find Si.laz in expected location')
 
+    #MPI test
+    if 'linux' in platform.system().lower():
+        print('linux detected - MPI compile only')
+        run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n0 --mpi=2 --verbose')
+    else:
+        run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2 --verbose')
+
     if 'ppc' in platform.processor().lower():
-        print('ppc processor detected - skipping MCPL/mpi tests')
+        print('ppc processor detected - skipping MCPL tests')
         return
 
-    #MPI test (disabled for now):
-    #run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2')
-
     #MCPL test:
-    #run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_input/Test_MCPL_input.instr', '-s1000 repeat=1')
-    #run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_output/Test_MCPL_output.instr', '-s1000 Ncount=1e3')
+    run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_input/Test_MCPL_input.instr', '-s1000 repeat=1')
+    run_instrument_file( 'share/mcxtrace/resources/examples/Tests_MCPL_etc/Test_MCPL_output/Test_MCPL_output.instr', '-s1000 Ncount=1e3')
 
 if __name__=='__main__':
     import sys
