@@ -190,10 +190,7 @@ def tests_for_pkg_mcxtrace():
         raise SystemExit('Did not find Si.laz in expected location')
 
     #MPI test
-    if 'linux' in platform.system().lower():
-        print('linux detected - skipping MPI test')
-    else:
-        run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2 --verbose')
+    run_instrument_file( 'share/mcxtrace/resources/examples/ESRF/ESRF_BM29/ESRF_BM29.instr', 'Lambda=1 -s1000 -n1e5 --mpi=2 --verbose')
 
     if 'ppc' in platform.processor().lower():
         print('ppc processor detected - skipping MCPL tests')
