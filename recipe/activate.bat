@@ -1,1 +1,1 @@
-set MCXTRACE="%CONDA_PREFIX%\share\mcxtrace\resources"
+set MCXTRACE="%PREFIX%\share\mcxtrace\resources"
