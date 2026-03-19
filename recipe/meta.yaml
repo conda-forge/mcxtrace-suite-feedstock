@@ -65,8 +65,7 @@ outputs:
     requirements:
       run:
         - mcxtrace-core
-        - pyqt
-        - qscintilla2
+        - pyqt6
     test:
       files:
         - test_pkg.py
@@ -86,7 +85,7 @@ outputs:
         - scipy
         - pillow
         - pyqtgraph
-        - pyqt >=5.10
+        - pyqt6
         - qtpy
         - nodejs
         # for traces from mxdisplay
