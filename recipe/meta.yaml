@@ -66,8 +66,7 @@ outputs:
       run:
         - mcxtrace-core
         - pyqt6
-        #- qscintilla2
-    test:
+     test:
       files:
         - test_pkg.py
       commands:
