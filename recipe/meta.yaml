@@ -65,8 +65,8 @@ outputs:
     requirements:
       run:
         - mcxtrace-core
-        - pyqt6
-     test:
+        - pyqt
+    test:
       files:
         - test_pkg.py
       commands:
@@ -85,7 +85,7 @@ outputs:
         - scipy
         - pillow
         - pyqtgraph
-        - pyqt6
+        - pyqt
         - qtpy
         - nodejs
         # for traces from mxdisplay
