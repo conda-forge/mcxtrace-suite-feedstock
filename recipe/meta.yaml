@@ -1,4 +1,4 @@
-{% set version = "3.7.24" %}
+{% set version = "3.8.2" %}
 
 package:
   name: mcxtrace-suite
@@ -8,7 +8,7 @@ package:
 # curl -sL url | openssl sha256
 source:
   url: https://github.com/mccode-dev/McCode/archive/v{{ version }}.tar.gz
-  sha256: e434f20d3b19142853dc5a770d3445aacfbeb85947e3a78650473d6e74c157b7
+  sha256: 0cf9ce7d670fd977689813b90086fa84bbf8f80fda5aa48d266809a35f6556c4
   folder: src
 
 build:
@@ -17,8 +17,7 @@ build:
 outputs:
 
   - name: mcxtrace-core
-    script: install-files-core.sh  # [unix]
-    script: install-files-core.bat  # [win]
+    script: "{{ 'install-files-core.bat' if win else 'install-files-core.sh' }}"
     requirements:
       build:
         - cmake
@@ -53,8 +52,7 @@ outputs:
   - name: mcxtrace-data
     build:
       noarch: generic
-    script: install-files-data.sh  # [unix]
-    script: install-files-data.bat  # [win]
+    script: "{{ 'install-files-data.bat' if win else 'install-files-data.sh' }}"
     test:
       files:
         - test_pkg.py
