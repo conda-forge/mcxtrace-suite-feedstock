@@ -17,8 +17,7 @@ build:
 outputs:
 
   - name: mcxtrace-core
-    script: install-files-core.sh  # [unix]
-    script: install-files-core.bat  # [win]
+    script: "{{ 'install-files-core.bat' if win else 'install-files-core.sh' }}"
     requirements:
       build:
         - cmake
@@ -53,8 +52,7 @@ outputs:
   - name: mcxtrace-data
     build:
       noarch: generic
-    script: install-files-data.sh  # [unix]
-    script: install-files-data.bat  # [win]
+    script: "{{ 'install-files-data.bat' if win else 'install-files-data.sh' }}"
     test:
       files:
         - test_pkg.py
