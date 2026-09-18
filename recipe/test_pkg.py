@@ -86,9 +86,9 @@ def run_instrument_file( instrumentfile, parameters = '' ):
         launch( f'mcxtrace {f.name}' )
         pars = '' if not parameters else ' %s'%parameters
         if platform.system().lower()=='windows':
-            launch( f'mxrun.bat -c --mpi=0 {f.name}{pars}' )
+            launch( f'mxrun.bat -c --no-mpi {f.name}{pars}' )
         else:
-            launch( f'mxrun -c --mpi=0 {f.name}{pars}' )
+            launch( f'mxrun -c --no-mpi {f.name}{pars}' )
 
 def common_tests_for_core_and_mcxtrace_pkgs( take_instr_file_from_src ):
     mxrun_resourcedir = query_mxrun_showcfgdir( 'resourcedir', must_exist = True )
