@@ -12,7 +12,7 @@ source:
   folder: src
 
 build:
-  number: 0
+  number: 1
 
 outputs:
 
@@ -23,7 +23,8 @@ outputs:
         - cmake
         - make  # [unix]
         - {{ compiler('c') }}
-        - {{ stdlib("c") }}
+        - {{ c_stdlib }}_{{ target_platform }} >={{ c_stdlib_version }}  # [unix]
+        - {{ stdlib("c") }}  # [win]
         - flex  # [unix]
         - bison  # [unix]
         - winflexbison  # [win]
