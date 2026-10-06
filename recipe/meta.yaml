@@ -23,8 +23,7 @@ outputs:
         - cmake
         - make  # [unix]
         - {{ compiler('c') }}
-        - {{ c_stdlib }}_{{ target_platform }} >={{ c_stdlib_version }}  # [unix]
-        - {{ stdlib("c") }}  # [win]
+        - {{ stdlib("c") }}
         - flex  # [unix]
         - bison  # [unix]
         - winflexbison  # [win]
@@ -33,7 +32,8 @@ outputs:
       run:
         - python
         - c-compiler
-        - {{ stdlib("c") }}
+        - {{ c_stdlib }}_{{ target_platform }} >={{ c_stdlib_version }}  # [unix]
+        - {{ stdlib("c") }}  # [win]
         - bash  # [unix]
         # for mcrun
         - pyaml
