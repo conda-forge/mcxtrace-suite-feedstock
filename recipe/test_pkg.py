@@ -174,6 +174,11 @@ def tests_for_pkg_data():
         raise SystemExit(f'Unexpected number ({ndata}) of data files installed')
 
 def tests_for_pkg_core():
+    mcxtrace_env = os.environ.get('MCXTRACE')
+    if not mcxtrace_env:
+        raise SystemExit('MCXTRACE env var is not set by mcxtrace-core')
+    if AbsPath(mcxtrace_env) != conda_prefix_dir / 'share' / 'mcxtrace' / 'resources':
+        raise SystemExit(f'MCXTRACE env var has unexpected value: {mcxtrace_env}')
     if ( conda_prefix_dir / 'share' / 'mcxtrace' / 'resources' / 'data' ).exists():
         raise SystemExit('share/mcxtrace/resources/data should not be created by mcxtrace-core')
     common_tests_for_core_and_mcxtrace_pkgs( take_instr_file_from_src = True )

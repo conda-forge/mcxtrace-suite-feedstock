@@ -64,10 +64,11 @@ if [ -f "${PREFIX}/bin/postinst" ]; then
     rm -f "${PREFIX}/bin/postinst"
 fi
 
-# Activation script (simply to get $MCXTRACE convenience env var to work in the
-# same way as when McXtrace is installed in other manners.
-for CHANGE in "activate" "deactivate"
-do
-    mkdir -p "${PREFIX}/etc/conda/${CHANGE}.d"
-    cp "${RECIPE_DIR}/${CHANGE}.sh" "${PREFIX}/etc/conda/${CHANGE}.d/${PKG_NAME}_${CHANGE}.sh"
-done
+# Set the $MCXTRACE convenience env var (to work in the same way as when
+# McXtrace is installed in other manners) via env_vars.d:
+mkdir -p "${PREFIX}/etc/conda/env_vars.d"
+cat > "${PREFIX}/etc/conda/env_vars.d/${PKG_NAME}.json" << EOF
+{
+  "MCXTRACE": "${PREFIX}/share/mcxtrace/resources"
+}
+EOF
